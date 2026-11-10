@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAAS PRESENTS – DISCOVER KELAA | A Journey Through History, Culture, Nature and People</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Reading Progress Indicator -->
+  <div class="reading-progress-container" aria-hidden="true">
+    <div id="reading-progress-bar" class="reading-progress-bar"></div>
+  </div>
+
+  <!-- Sticky Header & 11-Tab Navigation -->
+  <header class="site-header">
+    <div class="header-top-bar">
+      <div class="brand-identity" onclick="switchTab('home')" role="button" tabindex="0" aria-label="HAAS Presents Discover Kelaa Home">
+        <img src="assets/icons/haas_crest.svg" alt="HAAS Brand Crest" class="brand-crest" />
+        <div class="brand-titles">
+          <span class="brand-eyebrow">HAAS PRESENTS • DIGITAL MUSEUM &amp; DOCUMENTARY</span>
+          <span class="brand-main-name">DISCOVER KELAA</span>
+        </div>
+      </div>
+
+      <div class="header-utility-actions">
+        <button type="button" class="util-btn" onclick="openSearchModal()" title="Search Website Content">
+          🔍 <span class="util-label">Search</span>
+        </button>
+        <button type="button" class="util-btn" onclick="openFavouritesModal()" title="View Saved Favourite Facts">
+          ♥ <span class="util-label">Saved Facts</span> <span id="fav-count-badge" class="badge-pill">0</span>
+        </button>
+        <button type="button" id="audio-toggle-btn" class="util-btn" onclick="toggleAmbientAudio()" title="Mute or Unmute Island Ambient Soundtrack">
+          🔇 <span class="util-label">Audio Off</span>
+        </button>
+        <button type="button" id="theme-toggle-btn" class="util-btn" onclick="toggleTheme()" title="Switch Dark / Light Theme">
+          ☀️ <span class="util-label">Light</span>
+        </button>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+          ☰ Menu
+        </button>
+      </div>
+    </div>
+
+    <nav id="main-nav-links" class="nav-tabs-bar" aria-label="Primary Exploration Tabs">
+      <button type="button" class="nav-tab-btn active" data-tab="home" onclick="switchTab('home')">1. Home</button>
+      <button type="button" class="nav-tab-btn" data-tab="overview" onclick="switchTab('overview')">2. Island Overview</button>
+      <button type="button" class="nav-tab-btn" data-tab="history" onclick="switchTab('history')">3. Historical Journey</button>
+      <button type="button" class="nav-tab-btn" data-tab="culture" onclick="switchTab('culture')">4. Culture &amp; Traditions</button>
+      <button type="button" class="nav-tab-btn" data-tab="people" onclick="switchTab('people')">5. The People of Kelaa</button>
+      <button type="button" class="nav-tab-btn" data-tab="nature" onclick="switchTab('nature')">6. Natural Wonders</button>
+      <button type="button" class="nav-tab-btn" data-tab="food" onclick="switchTab('food')">7. Food &amp; Lifestyle</button>
+      <button type="button" class="nav-tab-btn" data-tab="treasures" onclick="switchTab('treasures')">8. Hidden Treasures</button>
+      <button type="button" class="nav-tab-btn" data-tab="gallery" onclick="switchTab('gallery')">9. Photo Gallery</button>
+      <button type="button" class="nav-tab-btn quiz-highlight-tab" data-tab="quiz" onclick="switchTab('quiz')">10. Interactive Quiz ★</button>
+      <button type="button" class="nav-tab-btn" data-tab="references" onclick="switchTab('references')">11. References &amp; Sources</button>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-content-wrapper">
+
+    <!-- ====================================================================
+         TAB 1 – HOME (CINEMATIC HOMEPAGE & INTRODUCTION)
+         ==================================================================== -->
+    <section id="tab-home" class="tab-panel active">
+      <div class="hero-cinematic">
+        <img src="assets/images/kelaa_aerial_hero.jpg" alt="Cinematic Aerial Visualization of Kelaa Island Lagoon and Reef" class="hero-bg-media" />
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-content-inner">
+          <span class="hero-brand-pill">HAAS PRESENTS</span>
+          <h1 class="hero-main-title">DISCOVER <span>KELAA</span></h1>
+          <p class="hero-subtitle">An Extraordinary Journey Through the Hidden Treasures of the Maldives</p>
+          <p class="hero-tagline">“More Than an Island. A Story of History, Heritage and Extraordinary People.”</p>
+          <p class="hero-intro-text">
+            Welcome to <strong>Kelaa (ކެލާ)</strong> in Haa Alifu Atoll—the northern gateway of the Maldives. Explore a 1701 AD coral stone mosque, a 2,423-hectare turquoise lagoon, the exclusive <em>Maliku Dhandi</em> stick dance, ancient stilt fishing at Gaamuli, and the critically endangered <em>Kelavaki</em> mangrove sanctuary.
+          </p>
+          <div class="hero-cta-group">
+            <button type="button" class="btn-primary" onclick="switchTab('overview')">🧭 Explore Kelaa</button>
+            <button type="button" class="btn-gold" onclick="switchTab('history')">🏛️ Discover Its History</button>
+            <button type="button" class="btn-secondary" onclick="startJourneyScroll()">✨ Start Your Journey</button>
+          </div>
+          <div>
+            <button type="button" id="hero-audio-btn" class="btn-audio-hero" onclick="toggleAmbientAudio()">
+              🔇 Sound: OFF (Play Ambience)
+            </button>
+          </div>
+          <div class="scroll-down-indicator" onclick="startJourneyScroll()" role="button" tabindex="0">
+            <span>Scroll to Explore the Digital Museum</span>
+            <strong>↓</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Statistics Banner -->
+      <div id="home-intro-anchor" class="stats-banner-grid">
+        <div class="glass-card stat-metric-card">
+          <span class="stat-metric-value">203.37 ha</span>
+          <span class="stat-metric-label">Total Island Land Area</span>
+          <span class="stat-metric-sub">3.06 km long × 1.04 km wide</span>
+        </div>
+        <div class="glass-card stat-metric-card">
+          <span class="stat-metric-value">2,423 ha</span>
+          <span class="stat-metric-label">Turquoise Lagoon</span>
+          <span class="stat-metric-sub">~12× larger than the island</span>
+        </div>
+        <div class="glass-card stat-metric-card">
+          <span class="stat-metric-value">1701 AD</span>
+          <span class="stat-metric-label">Old Friday Mosque</span>
+          <span class="stat-metric-sub">Built in Hijri Year 1111</span>
+        </div>
+        <div class="glass-card stat-metric-card">
+          <span class="stat-metric-value">112.00 ha</span>
+          <span class="stat-metric-label">Protected Kandoofaa</span>
+          <span class="stat-metric-sub">Designated 16 June 2019</span>
+        </div>
+        <div class="glass-card stat-metric-card">
+          <span class="stat-metric-value">1,115</span>
+          <span class="stat-metric-label">Resident Population</span>
+          <span class="stat-metric-sub">Census 2022 (2,444 Registered)</span>
+        </div>
+        <div class="glass-card stat-metric-card">
+          <span class="stat-metric-value">120 Qs</span>
+          <span class="stat-metric-label">Interactive Quiz Bank</span>
+          <span class="stat-metric-sub">60 MCQs + 60 True/False</span>
+        </div>
+      </div>
+
+      <div class="section-header-block">
+        <span class="section-eyebrow">INTRODUCTION TO HA. KELAA</span>
+        <h2 class="section-title">A Northern Jewel of Heritage, Ecology &amp; Resilience</h2>
+        <p class="section-lead">
+          Situated at coordinates <strong>6°57′11″N 73°12′56″E</strong> on the North-North-East rim of Haa Alifu Atoll (geographically part of Thiladhunmathi Atoll), Kelaa is the closest Maldivian island point to India—approximately 440 km from Trivandrum and 309.66 km north of Malé (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)" target="_blank" rel="noopener noreferrer">Wikipedia – Kelaa</a>).
+        </p>
+      </div>
+
+      <div class="grid-3col">
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/old_friday_mosque.jpg" alt="Kelaa Old Friday Mosque Architectural Illustration" />
+            <span class="img-type-badge">Architectural Illustration</span>
+          </div>
+          <span class="card-tag">325+ Years of Heritage</span>
+          <h3>Sacred Coral Stone Architecture</h3>
+          <p>
+            Home to the <strong>Kelaa Old Friday Mosque (Aasaaree Hukuru Miskiy)</strong> built in 1701 AD during Sultan Mohamed of Dhevvadhoo's reign, the historic 80+ year-old <strong>Lily House</strong>, and remnants of the WWII British Royal Air Force armoury at <em>Thun'di</em> (<a href="https://coralstonemosques.com/kelaa-old-friday-mosque/" target="_blank" rel="noopener noreferrer">Coral Stone Mosques</a>).
+          </p>
+          <button type="button" class="btn-secondary" onclick="switchTab('history')">Explore Historical Journey →</button>
+        </article>
+
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/maliku_dhandi_culture.jpg" alt="Maliku Dhandi Stick Dance and Thaara Drum Illustration" />
+            <span class="img-type-badge">Cultural Illustration</span>
+          </div>
+          <span class="card-tag">Living Intangible Heritage</span>
+          <h3>Maliku Dhandi &amp; Stilt Fishing</h3>
+          <p>
+            Kelaa is the sole guardian in the Maldives of the rhythmic <strong>Maliku Dhandi</strong> stick dance, the traditional practice of <strong>Kani Masverikan</strong> (stilt fishing) in Gaamuli lagoon, and the ancestral sweet delicacy <strong>Bimbi Bondi</strong> (<a href="https://ideaskelaa.wordpress.com/2017/03/15/featured-content/" target="_blank" rel="noopener noreferrer">IDEAS Kelaa</a>).
+          </p>
+          <button type="button" class="btn-secondary" onclick="switchTab('culture')">Explore Culture &amp; Traditions →</button>
+        </article>
+
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/kandoofaa_mangroves.jpg" alt="Kelaa Kandoofaa Mangrove Wetland Sanctuary Illustration" />
+            <span class="img-type-badge">Ecological Illustration</span>
+          </div>
+          <span class="card-tag">Global Biodiversity Hotspot</span>
+          <h3>Kelavaki &amp; Kandoofaa Sanctuary</h3>
+          <p>
+            Protected since June 2019, Kelaa's <strong>Kandoofaa wetland</strong> nourished the island during WWII food shortages and shelters four trees of the critically endangered mangrove <strong>Kelavaki</strong> (<em>Bruguiera hainesii</em>), discovered in 2020 (<a href="https://protectedareas.environment.gov.mv/en/protected-areas/h-a-kelaa-kandoofaa" target="_blank" rel="noopener noreferrer">Maldives Protected Areas</a>).
+          </p>
+          <button type="button" class="btn-secondary" onclick="switchTab('nature')">Explore Natural Wonders →</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 2 – ISLAND OVERVIEW (GEOGRAPHY, MAP & DEMOGRAPHICS)
+         ==================================================================== -->
+    <section id="tab-overview" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 2 • GEOGRAPHY, TOPOGRAPHY &amp; DEMOGRAPHICS</span>
+        <h2 class="section-title">Island Overview: Gateway of the Northern Maldives</h2>
+        <p class="section-lead">
+          Governed by the Secretariat of the Kelaa Island Council in Haa Alifu Atoll, Kelaa combines a 203.37-hectare agricultural and forested landmass with a 2,423-hectare turquoise lagoon enclosed by a 7.28 km house reef (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Geography" target="_blank" rel="noopener noreferrer">Wikipedia – Geography</a>; <a href="https://onemap.mv/" target="_blank" rel="noopener noreferrer">OneMap Maldives</a>).
+        </p>
+      </div>
+
+      <!-- Interactive Island Map Explorer -->
+      <div class="interactive-map-layout">
+        <div class="glass-card map-canvas-box">
+          <div>
+            <span class="card-tag">Interactive Illustrated Map</span>
+            <h3>Explore Kelaa's 8 Key Landmarks &amp; Ecological Zones</h3>
+            <p>Click any landmark button below to inspect its verified coordinates, historical context, and primary source citation.</p>
+          </div>
+          <div class="svg-map-wrapper">
+            <img src="assets/images/kelaa_map_illustration.svg" alt="Illustrated Cartographic Map of Kelaa Island" />
+          </div>
+          <div class="map-pin-buttons-grid" role="group" aria-label="Kelaa Map Landmarks">
+            <button type="button" class="island-map-pin active" data-pin="mosque" onclick="selectMapPin('mosque')">🕌 1. Old Friday Mosque (1701)</button>
+            <button type="button" class="island-map-pin" data-pin="kandoofaa" onclick="selectMapPin('kandoofaa')">🌿 2. Kandoofaa &amp; Kelavaki Park</button>
+            <button type="button" class="island-map-pin" data-pin="lilyhouse" onclick="selectMapPin('lilyhouse')">🏛️ 3. Historic Lily House</button>
+            <button type="button" class="island-map-pin" data-pin="thundi" onclick="selectMapPin('thundi')">🛡️ 4. Thun'di &amp; RAF Armoury</button>
+            <button type="button" class="island-map-pin" data-pin="gaamuli" onclick="selectMapPin('gaamuli')">🎣 5. Gaamuli Stilt Fishing</button>
+            <button type="button" class="island-map-pin" data-pin="athiri" onclick="selectMapPin('athiri')">🏖️ 6. Western Beach (Athiri)</button>
+            <button type="button" class="island-map-pin" data-pin="qufran" onclick="selectMapPin('qufran')">🌼 7. Golden Shower Tree</button>
+            <button type="button" class="island-map-pin" data-pin="school" onclick="selectMapPin('school')">🎓 8. Sheikh Ibrahim School</button>
+          </div>
+        </div>
+
+        <div class="glass-card" id="map-landmark-detail">
+          <!-- Populated dynamically by selectMapPin('mosque') on load -->
+        </div>
+      </div>
+
+      <!-- Geographical & Demographic Tables -->
+      <div class="grid-2col">
+        <div class="glass-card">
+          <span class="card-tag">Verified Physical Geography</span>
+          <h3>Geographical &amp; Hydrographic Specifications</h3>
+          <div class="table-responsive">
+            <table class="haas-table">
+              <thead>
+                <tr>
+                  <th>Attribute</th>
+                  <th>Verified Specification</th>
+                  <th>Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Coordinates</strong></td>
+                  <td>6°57′11″N 73°12′56″E (NNE Tip)</td>
+                  <td><a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)" target="_blank" rel="noopener noreferrer">Wikipedia</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Administrative / Natural Atoll</strong></td>
+                  <td>Haa Alifu Atoll / Thiladhunmathi Atoll</td>
+                  <td><a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)" target="_blank" rel="noopener noreferrer">Wikipedia</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Distance to Malé / Trivandrum</strong></td>
+                  <td>309.66 km to Malé • ~440 km to Trivandrum, India</td>
+                  <td><a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)" target="_blank" rel="noopener noreferrer">Wikipedia</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Land Area &amp; Dimensions</strong></td>
+                  <td>203.37 ha (2.0337 km²) • 3.06 km × 1.04 km</td>
+                  <td><a href="https://onemap.mv/" target="_blank" rel="noopener noreferrer">OneMap</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Coastline &amp; House Reef</strong></td>
+                  <td>8.6 km Coastline • 7.28 km Enclosing House Reef</td>
+                  <td><a href="https://ideasmv.com/tag/kelaa/" target="_blank" rel="noopener noreferrer">IDEAS Kelaa</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Lagoon Area &amp; Depths</strong></td>
+                  <td>2,423 ha (~12× island) • 5–6 m flats, 10–20 m <em>vilu</em></td>
+                  <td><a href="https://ideasmv.com/tag/kelaa/" target="_blank" rel="noopener noreferrer">IDEAS Kelaa</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Shoreline Zones</strong></td>
+                  <td>West: Sandy <em>Athiri</em> (2.5 km) • East: Rocky <em>Futtaru</em></td>
+                  <td><a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Geography" target="_blank" rel="noopener noreferrer">Wikipedia</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <span class="card-tag">Official Census &amp; Civil Registry</span>
+          <h3>Demographics &amp; Resident Population Trends</h3>
+          <p>
+            According to the <a href="https://census.gov.mv/2022/wp-content/uploads/2023/07/P3.pdf" target="_blank" rel="noopener noreferrer">Maldives Bureau of Statistics Census 2022</a>, Kelaa has a resident population of <strong>1,115</strong> (967 Maldivians and 148 foreigners; population density 46.02/km²), while its total registered population reached <strong>2,444</strong> as of 31 December 2023 (1,302 males [53%] and 1,142 females [47%], fourth largest in Haa Alifu Atoll). In addition, 1,082 registered citizens of Kelaa resided in Malé in 2022 for higher education and employment.
+          </p>
+          <div class="table-responsive">
+            <table class="haas-table">
+              <thead>
+                <tr>
+                  <th>Census / Registry Year</th>
+                  <th>Population Count</th>
+                  <th>Change / Breakdown</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>2000 Census (Resident)</strong></td>
+                  <td>1,196</td>
+                  <td>Baseline modern census</td>
+                </tr>
+                <tr>
+                  <td><strong>2006 Census (Resident)</strong></td>
+                  <td>1,200</td>
+                  <td>+0.3% decadal stability</td>
+                </tr>
+                <tr>
+                  <td><strong>2014 Census (Resident)</strong></td>
+                  <td>1,041</td>
+                  <td>−13.2% (education/work migration to Malé)</td>
+                </tr>
+                <tr>
+                  <td><strong>2022 Census (Resident)</strong></td>
+                  <td>1,115</td>
+                  <td>+7.1% growth (967 locals + 148 foreigners)</td>
+                </tr>
+                <tr>
+                  <td><strong>Dec 2023 Civil Registry</strong></td>
+                  <td>2,444 Registered</td>
+                  <td>1,302 Males (53%) • 1,142 Females (47%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 3 – HISTORICAL JOURNEY (ETYMOLOGY, TIMELINE & LANDMARKS)
+         ==================================================================== -->
+    <section id="tab-history" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 3 • ARCHAEOLOGY, ETYMOLOGY &amp; CHRONOLOGY</span>
+        <h2 class="section-title">Historical Journey: Centuries of Resilience &amp; Heritage</h2>
+        <p class="section-lead">
+          From 17th-century coral stone craftsmanship under the Dhevvadhoo dynasty to World War II aviation history and community solidarity, Kelaa's past is a testament to ingenuity and pride (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#History" target="_blank" rel="noopener noreferrer">Wikipedia – History of Kelaa</a>).
+        </p>
+      </div>
+
+      <!-- Three Theories of Kelaa's Name -->
+      <div class="grid-3col">
+        <article class="glass-card">
+          <span class="card-tag">Theory 1 • Most Favoured</span>
+          <h3>The Sandalwood Tree ("Kelaa")</h3>
+          <p>
+            In the Dhivehi language, <strong>Kelaa</strong> means sandalwood tree. According to island oral history, early sailors were guided to the island by the aromatic scent of a sandalwood tree carried on the wind. The tree was later uprooted and taken by foreign seafarers, and the exact spot remains visible today as <strong>"Kelaa gas negi adi gan'du"</strong> (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Origin_of_Name" target="_blank" rel="noopener noreferrer">Wikipedia</a>).
+          </p>
+        </article>
+        <article class="glass-card">
+          <span class="card-tag">Theory 2 • Linguistic Gateway</span>
+          <h3>"Kholaa" or "Kholar" (Open Entrance)</h3>
+          <p>
+            Positioned at the North-North-East tip of the Maldives (just 440 km from Trivandrum, India), Kelaa historically served as the northern maritime entry point into the archipelago. Linguists trace the name to Hindi and Urdu <strong>kholaa / kholar (खोला)</strong>, meaning an "open space" or "entrance" (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Origin_of_Name" target="_blank" rel="noopener noreferrer">Wikipedia</a>).
+          </p>
+        </article>
+        <article class="glass-card">
+          <span class="card-tag">Theory 3 • Marine Heritage</span>
+          <h3>"Keyla Mas" (Yellowthread Threadfin)</h3>
+          <p>
+            A third documented tradition connects the island's name to the prized coastal fish <strong>Keyla mas</strong>, the Dhivehi name for the Yellowthread threadfin (<em>Polydactylus sexfilis</em>) found in northern Maldivian waters (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Origin_of_Name" target="_blank" rel="noopener noreferrer">Wikipedia</a>).
+          </p>
+        </article>
+      </div>
+
+      <!-- Interactive Chronological Timeline -->
+      <div class="section-header-block">
+        <span class="section-eyebrow">INTERACTIVE CHRONOLOGICAL TIMELINE</span>
+        <h3 class="section-title">Milestones in Kelaa's History (1692 – Present)</h3>
+        <p class="section-lead">Filter Kelaa's historical timeline by era below:</p>
+      </div>
+
+      <div class="timeline-filter-bar" role="group" aria-label="Filter Historical Timeline">
+        <button type="button" class="timeline-filter-btn active" data-era="all" onclick="filterTimeline('all')">All Eras (11 Milestones)</button>
+        <button type="button" class="timeline-filter-btn" data-era="early" onclick="filterTimeline('early')">1692–1930: Sultanate &amp; Scholars</button>
+        <button type="button" class="timeline-filter-btn" data-era="wwii" onclick="filterTimeline('wwii')">1934–1955: WWII RAF &amp; Education</button>
+        <button type="button" class="timeline-filter-btn" data-era="modern" onclick="filterTimeline('modern')">1985–Present: Conservation &amp; Tourism</button>
+      </div>
+
+      <div class="timeline-container">
+        <div class="glass-card timeline-node" data-era="early">
+          <span class="timeline-year-badge">1692 – 1701 AD (Hijri Year 1111)</span>
+          <h3>Construction of the Kelaa Old Friday Mosque (Aasaaree Hukuru Miskiy)</h3>
+          <p>Built during the reign of Al-Sultan Mohamed Ibn Haji Ali Thukkalaa (Dhevvadhoo Rasgefaanu), this coral stone architectural masterpiece features interlocking <em>hirigaa</em> blocks, veranda-like <em>fenda</em> antechambers on three sides, a stepped entrance (<em>dhaala</em>), timber sliding doors, lacquered calligraphy panels, a decorated <em>laage</em> ceiling, two coral wells, and ancient carved tombstones (<a href="https://coralstonemosques.com/kelaa-old-friday-mosque/" target="_blank" rel="noopener noreferrer">Coral Stone Mosques</a>).</p>
+        </div>
+
+        <div class="glass-card timeline-node" data-era="early">
+          <span class="timeline-year-badge">15 October 1897 – 1927</span>
+          <h3>Birth &amp; Al-Azhar Scholarship of Al-Sheikh Ibrahim Rushdhee</h3>
+          <p>Born in Kelaa on 15 October 1897, Al-Sheikh Ibrahim Rushdhee travelled to Egypt in 1913 to study at Jami' al-Azhar (Al-Azhar University) for over 13 years, becoming its first Maldivian graduate before returning in 1927 and publishing <em>Sullamal Areeb</em> on 5 November 1936 (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Al-Sheikh_Ibrahim_Rushdhee" target="_blank" rel="noopener noreferrer">Wikipedia</a>).</p>
+        </div>
+
+        <div class="glass-card timeline-node" data-era="wwii">
+          <span class="timeline-year-badge">1934 &amp; 1941 – 1943 (World War II)</span>
+          <h3>British Royal Air Force (RAF) Staging Post &amp; Armoury at Thun'di</h3>
+          <p>First surveyed in 1934 and developed between 1941 and 1943 in southern Kelaa (<em>Thun'di</em>, ~3 km from the settlement), the British RAF base served as a vital refueling and staging outpost for Allied warplanes and shipping in the Indian Ocean (<a href="https://mnu.edu.mv/" target="_blank" rel="noopener noreferrer">Maldives National University</a>). Local islanders contributed essential construction skills to build the jetty, barracks, and the surviving <strong>British Armoury (Badige)</strong>.</p>
+        </div>
+
+        <div class="glass-card timeline-node" data-era="wwii">
+          <span class="timeline-year-badge">1942 – 1945 (Bodu Thadhu)</span>
+          <h3>Wartime Food Security Through Kelaa's Kan'doo Mangroves</h3>
+          <p>When World War II supply disruptions caused severe regional food shortages (<em>Bodu Thadhu</em>) and rationed rice to 0.5 <em>Laahi</em> (~120 ml) per meal, Kelaa's abundant Small-Leaved Orange Mangroves (<em>Kan'doo</em> / <em>Bruguiera cylindrica</em>) in Kandoofaa provided reliable nourishment for Kelaa and neighbouring islands (<a href="https://protectedareas.environment.gov.mv/en/protected-areas/h-a-kelaa-kandoofaa" target="_blank" rel="noopener noreferrer">Maldives Protected Areas</a>).</p>
+        </div>
+
+        <div class="glass-card timeline-node" data-era="wwii">
+          <span class="timeline-year-badge">21 January 1945 (6 Safar 1364 AH)</span>
+          <h3>Commencement of Formal Schooling &amp; the Dandoora Bell</h3>
+          <p>Recorded by pioneer educator Gasim Moosa Manik, Kelaa's formal school system began on 21 January 1945 (later registered in 1969 under directives of President Ibrahim Nasir and renamed Sheikh Ibrahim School in 2018). Early students assembled beneath a historic Fish Poison Tree (<em>Kin'bi Gas</em>) when the metal <strong>Dandoora</strong> gong was struck (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Education" target="_blank" rel="noopener noreferrer">Wikipedia</a>).</p>
+        </div>
+
+        <div class="glass-card timeline-node" data-era="wwii">
+          <span class="timeline-year-badge">Late 1940s – Early 1950s</span>
+          <h3>Construction of the Historic Lily House (Maaloodhu Ge)</h3>
+          <p>Completed during the tenure of Chief (<em>Katheeb</em>) Kasim, the 1,700 sq ft Lily House was built using traditional lime mortar (<em>uva</em>) with symmetrical columns. Initially a communal <em>Maaloodhu Ge</em> for devotional recitations, it later housed Madhrasathul Sheikh Ibrahim and Lily Pre-School (formalized in 1999) and is today a restored cultural monument (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Lily_House" target="_blank" rel="noopener noreferrer">Wikipedia</a>).</p>
+        </div>
+
+        <div class="glass-card timeline-node" data-era="modern">
+          <span class="timeline-year-badge">1985</span>
+          <h3>Japanese Maritime Radar Station Project</h3>
+          <p>Relocated from HDh. Hanimaadhoo to Kelaa, a Japanese government maritime monitoring project supervised by Maldivian National Defense Force (MNDF) officers and prepared by local volunteers constructed a three-story radar building and single-story accommodation unit in 1985 (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Development_in_the_80s" target="_blank" rel="noopener noreferrer">Wikipedia</a>).</p>
+        </div>
+
+        <div class="glass-card timeline-node" data-era="modern">
+          <span class="timeline-year-badge">26 December 2004</span>
+          <h3>Indian Ocean Tsunami Resilience &amp; Solidarity with Filladhoo</h3>
+          <p>Protected by its outer reef barrier, lagoon topography, and settlement layout, Kelaa experienced minimal inundation during the 2004 tsunami and immediately hosted displaced families from neighbouring <strong>Filladhoo</strong> (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Tsunami:_2004" target="_blank" rel="noopener noreferrer">Wikipedia</a>).</p>
+        </div>
+
+        <div class="glass-card timeline-node" data-era="modern">
+          <span class="timeline-year-badge">2014 – 2015</span>
+          <h3>Launch of Local Guesthouse Tourism &amp; Integrated Resort Initiative</h3>
+          <p>Kelaa welcomed its first registered guesthouse in 2014 (<em>Holiday Home Kelaa</em>), followed by the Kelaa Integrated Resort Project launch in September 2015 and steady growth to 96 registered guesthouse beds by June 2024 (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Tourism" target="_blank" rel="noopener noreferrer">Wikipedia</a>).</p>
+        </div>
+
+        <div class="glass-card timeline-node" data-era="modern">
+          <span class="timeline-year-badge">16 June 2019 &amp; October 2020</span>
+          <h3>Kelaa Kandoofaa Protection &amp; Discovery of Critically Endangered "Kelavaki"</h3>
+          <p>On 16 June 2019, 112 hectares of Kelaa Kandoofaa were designated a Protected Area (WDPA ID 555697565). In 2020, four critically endangered <em>Bruguiera hainesii</em> mangrove trees were discovered in Kelaa by the IUCN Mangrove Specialist Group and named <strong>"Kelavaki"</strong> by the Dhivehi Bahuge Academy (<a href="https://en02.sun.mv/63622" target="_blank" rel="noopener noreferrer">Sun Online</a>).</p>
+        </div>
+      </div>
+
+      <!-- Expandable Deep-Dive Historical Panels -->
+      <div class="section-header-block">
+        <span class="section-eyebrow">INTERACTIVE ARCHIVE PANELS</span>
+        <h3 class="section-title">Click to Expand Architectural &amp; Historical Deep Dives</h3>
+      </div>
+
+      <div id="acc-mosque" class="accordion-item open">
+        <button type="button" class="accordion-trigger" onclick="toggleAccordion('acc-mosque')">
+          <span>🕌 Architectural Anatomy of the 1701 Kelaa Old Friday Mosque</span>
+          <span>▼</span>
+        </button>
+        <div class="accordion-body">
+          Built in Hijri Year 1111 (1692–1701 AD), the Kelaa Old Friday Mosque stands on a raised coral stone (<em>hirigaa</em>) plinth with finely dressed coral walls, timber sliding doors, and a tiered roof. Its prayer hall is bordered on three sides by veranda-like antechambers (<em>fenda</em>) and entered via a rising stair with a decorative <em>dhaala</em>. Inside, master craftsmen created lacquered Arabic calligraphy panels, lacquered beams, and a coffered ceiling with a central decorated <em>laage</em>. The compound preserves two coral-lined wells, a ruined minaret base, and ancient gravestones inscribed in Arabic (<a href="https://coralstonemosques.com/kelaa-old-friday-mosque/" target="_blank" rel="noopener noreferrer">Coral Stone Mosques of Maldives</a>).
+        </div>
+      </div>
+
+      <div id="acc-raf" class="accordion-item">
+        <button type="button" class="accordion-trigger" onclick="toggleAccordion('acc-raf')">
+          <span>✈️ World War II Strategic Role &amp; The British Armoury (Badige)</span>
+          <span>▼</span>
+        </button>
+        <div class="accordion-body">
+          Following the April 1942 Japanese naval air raids on Ceylon (Sri Lanka), the Maldives became a critical link in Allied Indian Ocean defence (<a href="https://mnu.edu.mv/" target="_blank" rel="noopener noreferrer">MNU Maldives Security Outlook</a>). While RAF Gan anchored the south in Addu Atoll, Kelaa's southern spit (<em>Thun'di</em>) served as the northern staging and refueling station for warplanes and ships. Local Kelaa workers helped construct the jetty, barracks, and the brick-and-coral <strong>British Armoury (Badige)</strong>. An RAF seaplane that made a forced landing on Kelaa's beach also left historical remnants in the coastal zone (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#1940s:_World_War_II" target="_blank" rel="noopener noreferrer">Wikipedia</a>).
+        </div>
+      </div>
+
+      <div id="acc-lily" class="accordion-item">
+        <button type="button" class="accordion-trigger" onclick="toggleAccordion('acc-lily')">
+          <span>🏛️ From Maaloodhu Ge to Classroom: The Story of Lily House</span>
+          <span>▼</span>
+        </button>
+        <div class="accordion-body">
+          Constructed between the late 1940s and early 1950s under Chief (<em>Katheeb</em>) Kasim, Lily House spans 1,700 sq ft and exemplifies traditional lime-mortar (<em>uva</em>) masonry and symmetrical column design. Built as a <em>Maaloodhu Ge</em> where the entire island gathered for recitations of Islamic devotional texts (<em>mawlid</em>), it later transitioned into an educational hub—housing <em>Madhrasathul Sheikh Ibrahim</em> and subsequently <em>Lily Pre-School</em> (formalized in 1999) before its restoration as a protected monument (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Lily_House" target="_blank" rel="noopener noreferrer">Wikipedia</a>).
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 4 – CULTURE AND TRADITIONS
+         ==================================================================== -->
+    <section id="tab-culture" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 4 • PERFORMING ARTS, FESTIVALS &amp; CRAFTS</span>
+        <h2 class="section-title">Culture &amp; Traditions: The Pulse of Kelaa</h2>
+        <p class="section-lead">
+          Kelaa's cultural identity shines through performing arts found nowhere else in the Maldives, joyous island-wide Eid festivals, and centuries-old maritime customs (<a href="https://ideaskelaa.wordpress.com/2017/03/15/featured-content/" target="_blank" rel="noopener noreferrer">IDEAS – Maliku Dhandi</a>).
+        </p>
+      </div>
+
+      <!-- Interactive Culture Spotlight Explorer -->
+      <div class="glass-card" style="margin-bottom: 2rem;">
+        <span class="card-tag">Interactive Cultural Spotlight</span>
+        <h3>Explore the Elements of Maliku Dhandi &amp; Island Traditions</h3>
+        <div class="timeline-filter-bar" style="margin-top: 0.85rem;">
+          <button type="button" class="culture-spot-btn active" data-spot="mulhifoa" onclick="selectCultureSpotlight('mulhifoa')">🥢 Mulhifoa &amp; Maali Dhandi</button>
+          <button type="button" class="culture-spot-btn" data-spot="sticks" onclick="selectCultureSpotlight('sticks')">🌺 Kuredhi Sticks, Maa &amp; Fulus</button>
+          <button type="button" class="culture-spot-btn" data-spot="thaara" onclick="selectCultureSpotlight('thaara')">🥁 Thaara Drum &amp; Chants</button>
+          <button type="button" class="culture-spot-btn" data-spot="malhu" onclick="selectCultureSpotlight('malhu')">🏄 Malhu Surfing &amp; Eid Festival</button>
+        </div>
+        <div id="culture-spotlight-panel" class="landmark-fact-callout" style="margin-top: 1rem;">
+          <!-- Populated dynamically by selectCultureSpotlight -->
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/maliku_dhandi_culture.jpg" alt="Maliku Dhandi Sticks and Thaara Drum Illustration" />
+            <span class="img-type-badge">Cultural Illustration</span>
+          </div>
+          <span class="card-tag">Exclusive to Kelaa Island</span>
+          <h3>Maliku Dhandi: The Stick Dance of Kelaa</h3>
+          <p>
+            Believed to have been introduced generations ago by visitors from Maliku (Minicoy)—where it is no longer practiced—<strong>Maliku Dhandi (މަލިކު ދަނޑި)</strong> survives exclusively on Kelaa Island (<a href="https://ideaskelaa.wordpress.com/2017/03/15/featured-content/" target="_blank" rel="noopener noreferrer">IDEAS Kelaa</a>).
+          </p>
+          <ul class="bullet-list">
+            <li><strong>Two Choreographic Styles:</strong> Performers master both <em>Mulhifoa Dhandi</em> and <em>Maali Dhandi</em>.</li>
+            <li><strong>Handcrafted Sticks:</strong> Carved from local Ironwood (<em>Kuredhi</em>) and Lime Berry (<em>Kudhi Lunboa</em> / <em>Triphasia trifolia</em>), decorated with floral cloth tassels (<em>Maa</em>) and metallic caps (<em>Fulus</em>).</li>
+            <li><strong>Rhythmic Accompaniment:</strong> Driven by the <strong>Thaara</strong> hand drum (crafted from goat or stingray skin) and preserved by community elders and the youth-led <strong>Kelaa Dhandi Group</strong> (<a href="https://ideasmv.com/tag/kelaa/" target="_blank" rel="noopener noreferrer">IDEAS</a>).</li>
+          </ul>
+        </article>
+
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/stilt_fishing_gaamuli.jpg" alt="Stilt Fishing Kani Masverikan in Gaamuli Lagoon Illustration" />
+            <span class="img-type-badge">Cultural Illustration</span>
+          </div>
+          <span class="card-tag">Festivals, Surfing &amp; Seafaring</span>
+          <h3>Eid Water Festivals, Boduberu &amp; Malhu Surfing</h3>
+          <p>
+            Community celebrations bring every household on Kelaa together in warmth and generosity (<a href="https://emzaz.com/holiday-home-kelaa/" target="_blank" rel="noopener noreferrer">Holiday Home Kelaa</a>; <a href="https://summerhomekelaa.com/thingstodo" target="_blank" rel="noopener noreferrer">Summer Home Kelaa</a>):
+          </p>
+          <ul class="bullet-list">
+            <li><strong>Eid Water Splashing (Fen Kulhun) &amp; Morning Feasts:</strong> During Eid festivals, youth and children celebrate with joyful water-splashing games, while every home prepares special breakfast snacks for visiting neighbours and friends.</li>
+            <li><strong>Day-4 Thun'di Family Picnic:</strong> Families pack picnics and gather at <em>Kelaa Thun'di</em> for watersports, <em>Boduberu</em> drumming, and sunset celebrations (<a href="https://ideasmv.com/tag/kelaa/" target="_blank" rel="noopener noreferrer">IDEAS</a>).</li>
+            <li><strong>Traditional Malhu Surfing:</strong> On Kelaa's eastern surf breaks, young surfers historically rode waves using shaped wooden planks from breadfruit trees known locally as <strong>Malhu</strong> (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Surfing" target="_blank" rel="noopener noreferrer">Wikipedia</a>).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 5 – THE PEOPLE OF KELAA
+         ==================================================================== -->
+    <section id="tab-people" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 5 • COMMUNITY SPIRIT, SCHOLARS &amp; VALUES</span>
+        <h2 class="section-title">The People of Kelaa: Hospitality, Scholarship &amp; Unity</h2>
+        <p class="section-lead">
+          Renowned across the northern atolls for their warmth, respect for elders, and dedication to learning, the people of Kelaa have produced national scholars, poets, and resilient community builders (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Notable_Figures" target="_blank" rel="noopener noreferrer">Wikipedia – Notable Figures</a>).
+        </p>
+      </div>
+
+      <div class="grid-2col">
+        <article class="glass-card">
+          <span class="card-tag">15 Oct 1897 – 29 Oct 1961</span>
+          <h3>Al-Sheikh Ibrahim Rushdhee Al-Azharee</h3>
+          <p>
+            Born in Kelaa on 15 October 1897, <strong>Al-Sheikh Ibrahim Rushdhee</strong> travelled to Egypt in 1913 and studied for more than 13 years at <strong>Jami' al-Azhar (Al-Azhar University)</strong>, becoming the first Maldivian graduate of the prestigious institution (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Al-Sheikh_Ibrahim_Rushdhee" target="_blank" rel="noopener noreferrer">Wikipedia</a>).
+          </p>
+          <ul class="bullet-list">
+            <li><strong>National Educator &amp; Jurist:</strong> Returned in 1927 during Sultan Muhammad Shamsuddin III's reign; served as a founding teacher of <em>Madhrasathul Saniyya</em> (now Aminiya School), Member of Parliament, and Attorney General.</li>
+            <li><strong>Literary Landmark:</strong> Authored <strong><em>Sullamal Areeb</em> (سلم الأريب)</strong>, published on 5 November 1936—a foundational treatise on Dhivehi grammar, nouns, pronouns, and written formats.</li>
+            <li><strong>Enduring Legacy:</strong> Kelaa's school—<strong>Sheikh Ibrahim School (SIS)</strong>—proudly bears his name.</li>
+          </ul>
+        </article>
+
+        <article class="glass-card">
+          <span class="card-tag">c. 1945 – 7 Dec 2021 (Aged 76)</span>
+          <h3>Ali Ibrahim Manik ("Kelaa Alibe")</h3>
+          <p>
+            Affectionately known across the Maldives as <strong>Kelaa Alibe</strong>, Ali Ibrahim Manik was a beloved Kelaa-born Member of Parliament (1994–1999), lawyer, poet, playwright, historian, and grassroots visionary (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Ali_Ibrahim_Manik_(Kelaa_Alibe)" target="_blank" rel="noopener noreferrer">Wikipedia</a>).
+          </p>
+          <ul class="bullet-list">
+            <li><strong>Island Electrification &amp; Schooling:</strong> Built an early generator house on Kelaa when electricity was scarce, and personally hired two Indian teachers so Kelaa students could study subjects beyond Dhivehi.</li>
+            <li><strong>Economic &amp; Agricultural Reform:</strong> Established a tailoring shop, imported goats, supplied farming tools to strengthen island agriculture, and assisted in deciphering ancient <em>Dhives Akuru</em> texts.</li>
+            <li><strong>Poetic Voice:</strong> Celebrated for his poetry and historical writings, including the famous poem <strong>"މިހެން ނޫންތޯ ކަން ހުރީ!" (<em>Mihen Noonthoa Kan Huree!</em>)</strong>.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="grid-2col">
+        <article class="glass-card">
+          <span class="card-tag">Community Solidarity &amp; Pioneers</span>
+          <h3>Cooperation, Education Pioneers &amp; Social Values</h3>
+          <p>
+            Kelaa's social fabric is anchored in mutual aid (<em>ekaverikan</em>), respect for elders, and collective service:
+          </p>
+          <ul class="bullet-list">
+            <li><strong>2004 Tsunami Humanitarian Hospitality:</strong> When neighbouring Filladhoo suffered severe inundation in the December 2004 tsunami, Kelaa families immediately opened their homes to host and support displaced Filladhoo residents (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Tsunami:_2004" target="_blank" rel="noopener noreferrer">Wikipedia</a>).</li>
+            <li><strong>Educational Stewards:</strong> Civic leaders and educators including Chief (<em>Katheeb</em>) Kasim, pioneer teacher <strong>Gasim Moosa Manik</strong> (who documented the 21 January 1945 school founding), and headmaster <strong>Mohamed Rasheed ("Lha Seedhi")</strong> built a strong educational culture from <em>Lily Pre-School</em> through Grade 10 O-Levels (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Education" target="_blank" rel="noopener noreferrer">Wikipedia</a>).</li>
+          </ul>
+        </article>
+
+        <article class="glass-card">
+          <span class="card-tag">Islamic Heritage • Ministry of Islamic Affairs (Aug 2024)</span>
+          <h3>The Seven Mosques of Kelaa Island</h3>
+          <div class="table-responsive">
+            <table class="haas-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Mosque Name</th>
+                  <th>Dhivehi Name</th>
+                  <th>Area (sqft)</th>
+                  <th>Capacity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td><strong>Masjid-al Ansar</strong></td><td>މަސްޖިދުލް އަންޞާރު</td><td>5,380</td><td>670 pax</td></tr>
+                <tr><td>2</td><td><strong>Masjid-al Qufran</strong></td><td>މަސްޖިދުލް ޢުފްރާން</td><td>1,552</td><td>184 pax</td></tr>
+                <tr><td>3</td><td><strong>Old Friday Mosque (1701)</strong></td><td>ހުކުރު މިސްކިތް</td><td>600</td><td>176 pax</td></tr>
+                <tr><td>4</td><td><strong>Masjid-al Zahra</strong></td><td>މަސްޖިދުލް ޒަހްރާ</td><td>645</td><td>75 pax</td></tr>
+                <tr><td>5</td><td><strong>West Ward Women's Mosque</strong></td><td>ހުޅަނގު އަވަށު އަންހެނުންގެ މިސްކިތް</td><td>1,254</td><td>65 pax</td></tr>
+                <tr><td>6</td><td><strong>East Ward Women's Mosque</strong></td><td>އިރުމަތީ އަވަށު އަންހެނުންގެ މިސްކިތް</td><td>505</td><td>63 pax</td></tr>
+                <tr><td>7</td><td><strong>Eid Mosque</strong></td><td>ޢީދު މިސްކިތް</td><td>462</td><td>50 pax</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 6 – NATURAL WONDERS
+         ==================================================================== -->
+    <section id="tab-nature" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 6 • PROTECTED WETLANDS, CORAL REEFS &amp; FLORA</span>
+        <h2 class="section-title">Natural Wonders: Sanctuary of the Rare "Kelavaki"</h2>
+        <p class="section-lead">
+          Over two-thirds of Kelaa is lush tropical vegetation and wetland, bordered by a 2,423-hectare turquoise lagoon and the 112-hectare <strong>H.A. Kelaa Kandoofaa Protected Area</strong> (<a href="https://protectedareas.environment.gov.mv/en/protected-areas/h-a-kelaa-kandoofaa" target="_blank" rel="noopener noreferrer">Ministry of Climate Change, Environment and Energy</a>).
+        </p>
+      </div>
+
+      <div class="grid-2col">
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/kandoofaa_mangroves.jpg" alt="Kelaa Kandoofaa Mangrove Forest Illustration" />
+            <span class="img-type-badge">Ecological Illustration</span>
+          </div>
+          <span class="card-tag">Protected 16 June 2019 • WDPA ID 555697565</span>
+          <h3>H.A. Kelaa Kandoofaa &amp; The "Kelavaki" Discovery</h3>
+          <p>
+            Covering 22–26 hectares of inland wetland (~10.8% of the island's land area, 162,433 m²) within a 112.00-hectare Category 7 Protected Area, Kelaa Kandoofaa is one of the most diverse mangrove ecosystems in the Maldives (<a href="https://storymaps.arcgis.com/stories/d7bda89048874d498388f0fbe986958f" target="_blank" rel="noopener noreferrer">ArcGIS StoryMaps – Kelaa Kan'doofaa</a>):
+          </p>
+          <ul class="bullet-list">
+            <li><strong>Kelavaki (<em>Bruguiera hainesii</em>):</strong> In March/October 2020, four trees of this critically endangered mangrove species (fewer than ~200 trees left globally on the IUCN Red List) were identified in Kelaa by the IUCN Mangrove Specialist Group and Dr. Jean Yong, and named <strong>"Kelavaki"</strong> by the Dhivehi Bahuge Academy (<a href="https://timesofaddu.com/2020/10/24/name-given-for-the-newly-found-mangrove-species/" target="_blank" rel="noopener noreferrer">Times of Addu</a>; <a href="https://www.researchgate.net/publication/391160933_Mangrove_Community_Structure_Following_Dieback_Events_in_the_Maldives_Special_Emphasis_on_the_Genus_Bruguiera" target="_blank" rel="noopener noreferrer">ResearchGate 2025</a>).</li>
+            <li><strong>Kan'doo (<em>Bruguiera cylindrica</em>):</strong> Small-Leaved Orange Mangrove reaching 9–10 m in height (GBH 0.37–0.54 m), which sustained Kelaa during WWII food shortages.</li>
+            <li><strong>50+ Year-Old Kulhlhavah &amp; Associated Species:</strong> Hosts a half-century-old Mangrove Apple (<em>Kulhlhavah</em> / <em>Sonneratia caseolaris</em>), Oriental Mangrove (<em>Bodavaki</em> / <em>Bruguiera gymnorhiza</em>), Black Mangrove (<em>Burevi</em> / <em>Lumnitzera racemosa</em>), and Red Loop-Root Mangrove (<em>Randoo</em> / <em>Rhizophora mucronata</em>) (<a href="https://ideasmv.com/tag/kelaa/" target="_blank" rel="noopener noreferrer">IDEAS Kelaa</a>).</li>
+          </ul>
+        </article>
+
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/bioluminescent_beach.jpg" alt="Bioluminescent Plankton on Kelaa Beach Illustration" />
+            <span class="img-type-badge">Nature Illustration</span>
+          </div>
+          <span class="card-tag">Avifauna, Rare Trees &amp; Marine Life</span>
+          <h3>Protected Birds, Botanical Gems &amp; Glowing Lagoon</h3>
+          <p>
+            From canopy to coral reef, Kelaa supports extraordinary island and marine biodiversity (<a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)#Ecosystem_and_Biodiversity" target="_blank" rel="noopener noreferrer">Wikipedia – Biodiversity</a>):
+          </p>
+          <ul class="bullet-list">
+            <li><strong>Protected Wetland Birds:</strong> Grey Heron (<em>Maakanaa</em> / <em>Ardea cinerea</em>), Cattle Egret (<em>Iruvaahudhu</em> / <em>Bubulcus ibis</em>), Maldivian White-Breasted Waterhen (<em>Kan'bili</em> / <em>Amaurornis phoenicurus maldivus</em>), Common Moorhen (<em>Kulheekukulhu</em> / <em>Gallinula chloropus</em>), Black-Crowned Night Heron (<em>Raabondhi</em>), and Asian Koel (<em>Koveli</em>).</li>
+            <li><strong>Golden Shower Tree (<em>An'malthaas</em> / <em>Cassia fistula</em>):</strong> A rare tree in the Maldives blooming inside the Masjid-al Qufran compound opposite the Kelaa Council Secretariat, alongside coastal Fish Poison Trees (<em>Kin'bi Gas</em> / <em>Barringtonia asiatica</em>).</li>
+            <li><strong>Gaamuli Lagoon &amp; Bioluminescence:</strong> Shelters baby reef sharks, stingrays, Samoan silversides (<em>thaavalha</em>), redtailed pipefish (<em>venu bandeyri</em>), bluespotted cornetfish (<em>onugandu tholhi</em>), and nighttime <strong>bioluminescent plankton</strong> (<a href="https://summerhomekelaa.com/thingstodo" target="_blank" rel="noopener noreferrer">Summer Home Kelaa</a>).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 7 – FOOD AND LOCAL LIFESTYLE
+         ==================================================================== -->
+    <section id="tab-food" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 7 • GASTRONOMY, STILT FISHING &amp; AGRICULTURE</span>
+        <h2 class="section-title">Food &amp; Local Lifestyle: Flavours of the North</h2>
+        <p class="section-lead">
+          Blessed with fertile soil and a bountiful lagoon, Kelaa celebrates distinctive Maldivian delicacies, traditional stilt fishing, and welcoming island hospitality (<a href="https://emzaz.com/holiday-home-kelaa/" target="_blank" rel="noopener noreferrer">Holiday Home Kelaa</a>).
+        </p>
+      </div>
+
+      <div class="grid-3col">
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/bimbi_bondi_cuisine.jpg" alt="Bimbi Bondi and Traditional Maldivian Feast Illustration" />
+            <span class="img-type-badge">Culinary Illustration</span>
+          </div>
+          <span class="card-tag">Signature Kelaa Delicacies</span>
+          <h3>Bimbi Bondi, Eid Bon'di &amp; Kan'doo</h3>
+          <p>
+            Kelaa is famous for <strong>Bimbi Bondi</strong>—a traditional sweet crafted from finger millet (black malt / <em>bimbi</em>) and coconut sugar—as well as <strong>Kelaa Eid Bon'di</strong> made from tender young coconut and sugar during Eid festivities (<a href="https://emzaz.com/holiday-home-kelaa/" target="_blank" rel="noopener noreferrer">Holiday Home Kelaa</a>). Elders also preserve the traditional preparation of boiled <strong>Kan'doo</strong> mangrove seeds, paired with classic Maldivian <em>Mashuni</em>, <em>Garudhiya</em>, and fresh reef fish.
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/stilt_fishing_gaamuli.jpg" alt="Kani Masverikan Stilt Fishing Illustration" />
+            <span class="img-type-badge">Cultural Illustration</span>
+          </div>
+          <span class="card-tag">Maritime Livelihoods</span>
+          <h3>Stilt Fishing (Kani Masverikan) &amp; Reef Fisheries</h3>
+          <p>
+            During the rough southwest monsoon (<em>Hulhangu moosun</em>) when offshore tuna fishing is challenging, Kelaa fishermen practice <strong>Kani Masverikan</strong> in the shallow lagoon of <strong>Gaamuli</strong>. Seated for hours on stilts made of Corkwood (<em>Dhun'buri</em>) or Sea Randa (<em>Uni</em> / <em>Guettarda speciosa</em>) with packed snacks, they catch <em>uniya</em> and <em>kalhu oh</em> (<a href="https://ideasmv.com/tag/kelaa/" target="_blank" rel="noopener noreferrer">IDEAS Kelaa</a>).
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <div class="feature-img-card">
+            <img src="assets/images/lily_house_heritage.jpg" alt="Kelaa Island Street and Heritage Illustration" />
+            <span class="img-type-badge">Heritage Illustration</span>
+          </div>
+          <span class="card-tag">Agriculture &amp; Island Hospitality</span>
+          <h3>Farming, Local Cafes &amp; Guesthouse Life</h3>
+          <p>
+            Kelaa's expansive 203.37-hectare landmass supports thriving agriculture (watermelons, papayas, chilies, pumpkins, and coconuts). Visitors enjoy 96 registered beds across guesthouses like <em>Holiday Home Kelaa</em>, <em>Summer Home Kelaa</em>, <em>Beach Home Kelaa</em>, and <em>Thooru Stay</em>, local cafes (<em>Michoobs</em>, <em>Kelaa Sufra</em>, <em>Kanburu</em>, <em>Sosun Cafe</em>), 24-hour health and ATM services, bicycle rides, and catamaran sailing (<a href="https://summerhomekelaa.com/thingstodo" target="_blank" rel="noopener noreferrer">Summer Home Kelaa</a>).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 8 – HIDDEN TREASURES ("DID YOU KNOW?" DISCOVERY SECTION)
+         ==================================================================== -->
+    <section id="tab-treasures" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 8 • 15 VERIFIED DISCOVERIES &amp; SURPRISING FACTS</span>
+        <h2 class="section-title">Hidden Treasures of Kelaa</h2>
+        <p class="section-lead">
+          Explore 15 research-backed discoveries that many travellers—and even many Maldivians—may not know about Kelaa. Click <strong>"♡ Save"</strong> on any card to bookmark it to your personal Saved Facts collection!
+        </p>
+      </div>
+
+      <!-- Random Interesting Fact Generator Banner -->
+      <div class="glass-card random-fact-banner">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <span class="card-tag">Interactive Discovery Generator</span>
+            <h3>Random Kelaa Fact Spotlight</h3>
+          </div>
+          <button type="button" class="btn-gold" onclick="triggerRandomFact()">🎲 Generate Another Random Fact</button>
+        </div>
+        <div id="random-fact-spotlight" class="landmark-fact-callout">
+          <!-- Populated dynamically by triggerRandomFact() -->
+        </div>
+      </div>
+
+      <div id="treasures-cards-grid" class="grid-3col">
+        <!-- Populated dynamically by renderHiddenTreasures() in js/main.js -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 9 – PHOTO GALLERY
+         ==================================================================== -->
+    <section id="tab-gallery" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 9 • VISUAL STORYTELLING &amp; HERITAGE ILLUSTRATIONS</span>
+        <h2 class="section-title">Interactive Visual Gallery</h2>
+        <p class="section-lead">
+          Filter across 8 thematic categories. In accordance with museum authenticity standards, cartographic diagrams and bespoke heritage/ecological illustrations are transparently labelled alongside their primary research sources. Click any visual to open the full-screen Lightbox!
+        </p>
+      </div>
+
+      <div class="timeline-filter-bar" role="group" aria-label="Gallery Category Filter">
+        <button type="button" class="gallery-filter-btn active" data-cat="all" onclick="filterGallery('all')">All Visuals (10)</button>
+        <button type="button" class="gallery-filter-btn" data-cat="aerial" onclick="filterGallery('aerial')">Aerial Views</button>
+        <button type="button" class="gallery-filter-btn" data-cat="beaches" onclick="filterGallery('beaches')">Beaches &amp; Lagoons</button>
+        <button type="button" class="gallery-filter-btn" data-cat="history" onclick="filterGallery('history')">Historical Places</button>
+        <button type="button" class="gallery-filter-btn" data-cat="culture" onclick="filterGallery('culture')">Culture &amp; Traditions</button>
+        <button type="button" class="gallery-filter-btn" data-cat="people" onclick="filterGallery('people')">People &amp; Community</button>
+        <button type="button" class="gallery-filter-btn" data-cat="food" onclick="filterGallery('food')">Local Food</button>
+        <button type="button" class="gallery-filter-btn" data-cat="nature" onclick="filterGallery('nature')">Nature &amp; Wildlife</button>
+        <button type="button" class="gallery-filter-btn" data-cat="lifestyle" onclick="filterGallery('lifestyle')">Everyday Island Life</button>
+      </div>
+
+      <div id="photo-gallery-grid" class="gallery-grid">
+        <!-- Populated dynamically by filterGallery() in js/main.js -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 10 – INTERACTIVE QUIZ ("HOW WELL DO YOU KNOW KELAA?")
+         ==================================================================== -->
+    <section id="tab-quiz" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 10 • 30-MARK RANDOMISED ASSESSMENT ENGINE</span>
+        <h2 class="section-title">HOW WELL DO YOU KNOW KELAA?</h2>
+        <p class="section-lead">
+          Test your mastery across two independent sections: <strong>Quiz A (15 Multiple-Choice Questions = 15 Marks)</strong> and <strong>Quiz B (15 True or False Questions = 15 Marks)</strong> for a total of <strong>30 Marks</strong>. Powered by a 120-question bank (60 MCQs + 60 True/False) using the Fisher-Yates shuffle algorithm, every visit or click on <em>"New Quiz"</em> generates a fresh random set!
+        </p>
+      </div>
+
+      <div class="glass-card" style="margin-bottom: 1.5rem;">
+        <div class="quiz-hero-header">
+          <div>
+            <span id="quiz-attempt-badge" class="quiz-attempt-pill">Set #1 (Fisher-Yates Randomised from 120-Question Bank)</span>
+          </div>
+          <div style="display:flex; gap:0.65rem; flex-wrap:wrap;">
+            <button type="button" class="btn-gold" onclick="generateNewQuiz(true)">🔀 NEW QUIZ (Generate Fresh 30 Questions)</button>
+            <button type="button" class="btn-primary" onclick="openQuizConfirmModal()">✓ Submit Quiz (Score / 30)</button>
+          </div>
+        </div>
+
+        <div class="quiz-progress-box">
+          <div class="quiz-progress-track">
+            <div id="quiz-live-progress-fill" class="quiz-progress-fill"></div>
+          </div>
+          <small id="quiz-live-progress-text" style="color:var(--text-secondary); font-weight:700;">0 / 30 Answered (0%) — MCQ: 0/15 | T/F: 0/15</small>
+        </div>
+
+        <div id="quiz-active-controls" class="quiz-controls-toolbar">
+          <div class="quiz-tab-switcher" role="group" aria-label="Quiz Section Selector">
+            <button type="button" id="quiz-sec-btn-mcq" class="timeline-filter-btn active" onclick="selectQuizSection('mcq')">Quiz A: Multiple Choice (15 Marks)</button>
+            <button type="button" id="quiz-sec-btn-tf" class="timeline-filter-btn" onclick="selectQuizSection('tf')">Quiz B: True or False (15 Marks)</button>
+            <button type="button" id="quiz-sec-btn-all" class="timeline-filter-btn" onclick="selectQuizSection('all')">Show Both Sections (30 Marks)</button>
+          </div>
+
+          <div class="quiz-mode-switcher" role="group" aria-label="Quiz Layout Mode">
+            <button type="button" id="quiz-mode-all-btn" class="util-btn active-util" onclick="setQuizDisplayMode('all')">📋 List View</button>
+            <button type="button" id="quiz-mode-step-btn" class="util-btn" onclick="setQuizDisplayMode('step')">🎯 One-by-One Card View</button>
+          </div>
+        </div>
+
+        <!-- Quick Question Number Navigator (1..15 MCQ & 1..15 TF) -->
+        <div id="quiz-question-nav-pills" class="quiz-nav-pills-wrap"></div>
+      </div>
+
+      <!-- Active Quiz Questions Stage -->
+      <div id="quiz-questions-stage"></div>
+
+      <!-- Bottom Submit Bar -->
+      <div class="glass-card quiz-submit-sticky-bar">
+        <div>
+          <strong>Ready to see your results?</strong>
+          <p style="margin:0; font-size:0.86rem;">Unanswered questions receive 0 marks with no negative penalty.</p>
+        </div>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <button type="button" class="btn-secondary" onclick="generateNewQuiz(true)">🔀 Load Fresh Question Set</button>
+          <button type="button" class="btn-gold" onclick="openQuizConfirmModal()">🏆 Review &amp; Submit Quiz</button>
+        </div>
+      </div>
+
+      <!-- Quiz Results & Answer Review Container -->
+      <div id="quiz-results-container" style="display:none; margin-top:2rem;"></div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 11 – REFERENCES AND SOURCES
+         ==================================================================== -->
+    <section id="tab-references" class="tab-panel">
+      <div class="section-header-block">
+        <span class="section-eyebrow">TAB 11 • TRANSPARENT BIBLIOGRAPHY &amp; ATTRIBUTIONS</span>
+        <h2 class="section-title">References, Official Sources &amp; Archival Credits</h2>
+        <p class="section-lead">
+          Every statistic, historical date, ecological classification, and cultural description in <strong>HAAS PRESENTS – DISCOVER KELAA</strong> is grounded in official Maldivian government portals, academic publications, and documented heritage repositories.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <h3>Primary Government, Academic &amp; Heritage Sources</h3>
+        <div class="table-responsive">
+          <table class="haas-table">
+            <thead>
+              <tr>
+                <th>Source Title</th>
+                <th>Organisation / Publisher</th>
+                <th>Publication Date</th>
+                <th>Verified Clickable URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>H.A. Kelaa Kandoofaa Protected Area Profile (WDPA ID 555697565)</strong></td>
+                <td>Ministry of Climate Change, Environment and Energy (Republic of Maldives)</td>
+                <td>Protected 16 June 2019 (Updated 2024–2026)</td>
+                <td><a href="https://protectedareas.environment.gov.mv/en/protected-areas/h-a-kelaa-kandoofaa" target="_blank" rel="noopener noreferrer">protectedareas.environment.gov.mv ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Maldives Population &amp; Housing Census 2022 – Island Level Tables</strong></td>
+                <td>Maldives Bureau of Statistics (Ministry of National Planning, Housing &amp; Infrastructure)</td>
+                <td>July 2023</td>
+                <td><a href="https://census.gov.mv/2022/wp-content/uploads/2023/07/P3.pdf" target="_blank" rel="noopener noreferrer">census.gov.mv/2022/P3.pdf ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Kelaa Old Friday Mosque (Aasaaree Hukuru Miskiy – 1701)</strong></td>
+                <td>Coral Stone Mosques of Maldives (Developed by M. Mauroof Jameel)</td>
+                <td>February 2020</td>
+                <td><a href="https://coralstonemosques.com/kelaa-old-friday-mosque/" target="_blank" rel="noopener noreferrer">coralstonemosques.com/kelaa-old-friday-mosque ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Kelaa (Haa Alif Atoll) – Comprehensive Encyclopedic Profile</strong></td>
+                <td>Wikipedia, The Free Encyclopedia (citing Ministry of Islamic Affairs, OneMap &amp; Kelaa Council)</td>
+                <td>Updated August 2024</td>
+                <td><a href="https://en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll)" target="_blank" rel="noopener noreferrer">en.wikipedia.org/wiki/Kelaa_(Haa_Alif_Atoll) ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Kelaa Kan'doofaa Biodiversity Mapping (GEF Small Grants / UNDP)</strong></td>
+                <td>Hassan Akram, IDEAS Maldives &amp; UNDP Maldives (ArcGIS StoryMaps)</td>
+                <td>28 June 2021</td>
+                <td><a href="https://storymaps.arcgis.com/stories/d7bda89048874d498388f0fbe986958f" target="_blank" rel="noopener noreferrer">storymaps.arcgis.com (Kelaa Kan'doofaa) ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Rare Mangrove Species Discovered in Kelaa Named Locally as "Kelavaki"</strong></td>
+                <td>Sun Online / Ministry of Environment &amp; Dhivehi Bahuge Academy</td>
+                <td>25 October 2020</td>
+                <td><a href="https://en02.sun.mv/63622" target="_blank" rel="noopener noreferrer">en02.sun.mv/63622 ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Local Name Finalized for New Mangrove Species Found in Maldives (Bruguiera hainesii)</strong></td>
+                <td>The Times of Addu (citing IUCN Mangrove Specialist Group &amp; Dr. Jean Yong)</td>
+                <td>24 October 2020</td>
+                <td><a href="https://timesofaddu.com/2020/10/24/name-given-for-the-newly-found-mangrove-species/" target="_blank" rel="noopener noreferrer">timesofaddu.com (Kelavaki Naming) ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Mangrove Community Structure Following Dieback Events in the Maldives (Genus Bruguiera)</strong></td>
+                <td>ResearchGate Scientific Publication</td>
+                <td>11 April 2025</td>
+                <td><a href="https://www.researchgate.net/publication/391160933_Mangrove_Community_Structure_Following_Dieback_Events_in_the_Maldives_Special_Emphasis_on_the_Genus_Bruguiera" target="_blank" rel="noopener noreferrer">researchgate.net/publication/391160933 ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Maliku Dhandi and Kelaa Dhandi Group / Wonders of Gaa Muli / Kandoo Food Security</strong></td>
+                <td>IDEAS (Island Development &amp; Environmental Awareness Society – Kelaa)</td>
+                <td>March 2017 – June 2019</td>
+                <td><a href="https://ideasmv.com/tag/kelaa/" target="_blank" rel="noopener noreferrer">ideasmv.com/tag/kelaa ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>War, History and Small States' Security: Navigating the Maldives' Role in WWII</strong></td>
+                <td>Asst. Prof. Ahmed Zaki Nafiz, The Maldives National University (MNU)</td>
+                <td>12 May 2025</td>
+                <td><a href="https://mnu.edu.mv/" target="_blank" rel="noopener noreferrer">mnu.edu.mv (Maldives Security Outlook) ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Holiday Home Kelaa – Cultural Programs, Eid Festivities &amp; Bimbi Bondi</strong></td>
+                <td>eMzaz / Holiday Home Kelaa</td>
+                <td>2024</td>
+                <td><a href="https://emzaz.com/holiday-home-kelaa/" target="_blank" rel="noopener noreferrer">emzaz.com/holiday-home-kelaa ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Things to Do in Kelaa – Bioluminescent Plankton, Beach &amp; Excursions</strong></td>
+                <td>Summer Home Kelaa</td>
+                <td>2024</td>
+                <td><a href="https://summerhomekelaa.com/thingstodo" target="_blank" rel="noopener noreferrer">summerhomekelaa.com/thingstodo ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>OneMap Maldives – Official Geospatial Land &amp; Lagoon Measurements</strong></td>
+                <td>Maldives Land and Survey Authority</td>
+                <td>2024</td>
+                <td><a href="https://onemap.mv/" target="_blank" rel="noopener noreferrer">onemap.mv ↗</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       MODALS: LIGHTBOX, GLOBAL SEARCH, SAVED FACTS & QUIZ CONFIRMATION
+       ==================================================================== -->
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="haas-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <div class="haas-modal-card lightbox-card">
+      <div class="modal-header-row">
+        <span id="lightbox-counter" class="card-tag">1 / 10</span>
+        <button type="button" class="modal-close-btn" onclick="closeLightbox()">Close ✕</button>
+      </div>
+      <div class="lightbox-img-container">
+        <img id="lightbox-img" src="assets/images/kelaa_aerial_hero.jpg" alt="Gallery Fullscreen View" />
+      </div>
+      <h3 id="lightbox-title" style="margin-bottom:0.4rem;">Visual Title</h3>
+      <p id="lightbox-caption" style="color:var(--text-secondary); font-size:0.94rem; margin-bottom:0.4rem;"></p>
+      <small id="lightbox-credit" style="color:var(--accent-gold); display:block; margin-bottom:1rem;"></small>
+      <div style="display:flex; justify-content:center; gap:1rem;">
+        <button type="button" class="btn-secondary" onclick="stepLightbox(-1)">← Previous Visual</button>
+        <button type="button" class="btn-primary" onclick="stepLightbox(1)">Next Visual →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Content Search Modal -->
+  <div id="search-modal" class="haas-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="search-modal-heading">
+    <div class="haas-modal-card">
+      <div class="modal-header-row">
+        <h3 id="search-modal-heading">🔍 Search Discover Kelaa</h3>
+        <button type="button" class="modal-close-btn" onclick="closeSearchModal()">Close ✕</button>
+      </div>
+      <input type="text" id="site-search-input" class="search-input-field" placeholder="Search topics (e.g., Kelavaki, Maliku Dhandi, 1701 Mosque, Bimbi Bondi, Alibe)..." oninput="runSiteSearch(this.value)" />
+      <div id="site-search-results" class="search-results-list"></div>
+    </div>
+  </div>
+
+  <!-- Saved Favourite Facts Modal -->
+  <div id="favourites-modal" class="haas-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="fav-modal-heading">
+    <div class="haas-modal-card">
+      <div class="modal-header-row">
+        <h3 id="fav-modal-heading">♥ Your Saved Kelaa Facts</h3>
+        <button type="button" class="modal-close-btn" onclick="closeFavouritesModal()">Close ✕</button>
+      </div>
+      <div id="favourites-modal-list" class="search-results-list"></div>
+    </div>
+  </div>
+
+  <!-- Quiz Submission Confirmation Modal -->
+  <div id="quiz-confirm-modal" class="haas-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="quiz-confirm-heading">
+    <div class="haas-modal-card">
+      <div class="modal-header-row">
+        <h3 id="quiz-confirm-heading">📋 Confirm Quiz Submission</h3>
+        <button type="button" class="modal-close-btn" onclick="closeQuizConfirmModal()">Keep Reviewing ✕</button>
+      </div>
+      <div id="quiz-confirm-summary"></div>
+      <div style="display:flex; justify-content:flex-end; gap:0.85rem; margin-top:1.35rem; flex-wrap:wrap;">
+        <button type="button" class="btn-secondary" onclick="closeQuizConfirmModal()">← Return to Questions</button>
+        <button type="button" class="btn-gold" onclick="finalizeQuizSubmission()">✓ Confirm &amp; Calculate Score</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification & Back to Top -->
+  <div id="haas-toast" class="haas-toast" role="status" aria-live="polite"></div>
+  <button type="button" id="back-to-top-btn" class="back-to-top-btn" onclick="scrollToTopPage()" title="Back to Top" aria-label="Back to Top">↑</button>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="assets/icons/haas_crest.svg" alt="HAAS Crest" style="width:52px; height:52px; margin:0 auto 0.65rem;" />
+      <span class="brand-eyebrow">HAAS PRESENTS • DISCOVER KELAA</span>
+      <p class="footer-quote">“One Island. Countless Stories. A Heritage Worth Discovering.”</p>
+      <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:0.75rem;">
+        Kelaa Island (ކެލާ) • Haa Alifu Atoll (Thiladhunmathi Uthuruburi) • Republic of Maldives (6°57′11″N 73°12′56″E)
+      </p>
+      <p style="color:var(--text-muted); font-size:0.78rem;">
+        Developed with HTML5, CSS3 &amp; Vanilla JavaScript • Historically Respectful, Research-Grounded Digital Museum Experience
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modular Local JavaScript Files -->
+  <script src="js/questions.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
